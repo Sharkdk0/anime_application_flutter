@@ -11,6 +11,31 @@ class AnimeDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(animeModel.jpTitle),),
+      body: Column(
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.4,
+            child: Row(
+              children: [
+                Image.network(animeModel.imageURL),
+                Column(
+                  children: [
+                    Text("Japanese Title: " + animeModel.jpTitle,
+                    style: TextStyle(fontSize: MediaQuery.of(context).size.width > 600 ? 20 : 15)),
+                    Text("English Title: " + animeModel.engTitle),
+                    Text("Rating: " + animeModel.rating.toString()),
+                    Text("Status: " +animeModel.status),
+                    Text("Source: " +animeModel.source),
+                    Text("Episodes: " +animeModel.episodes.toString()),
+                  ]
+                )
+                
+              ],
+            ),),
+            Column(children: [
+              Text(animeModel.synopsis),
+            ],)
+          ] ),
+      
     );
   }
 }
